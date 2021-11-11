@@ -16,11 +16,13 @@ public class Worker implements Serializable {
     }
 
     // Construtor
+
     public Worker(Long id, String name, Double dailyIncome) {
         this.id = id;
         this.name = name;
         this.dailyIncome = dailyIncome;
     }
+
 
     //Getters e Setters
 
@@ -41,11 +43,11 @@ public class Worker implements Serializable {
         this.name = name;
     }
 
-    public Double getdailyIncome() {
+    public Double getDailyIncome() {
         return dailyIncome;
     }
 
-    public void setdailyIncome(Double dailyIncome) {
+    public void setDailyIncome(Double dailyIncome) {
         this.dailyIncome = dailyIncome;
     }
 
