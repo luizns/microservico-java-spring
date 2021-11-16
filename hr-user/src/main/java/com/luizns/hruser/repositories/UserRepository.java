@@ -1,6 +1,7 @@
 package com.luizns.hruser.repositories;
 
 import com.luizns.hruser.entities.User;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {

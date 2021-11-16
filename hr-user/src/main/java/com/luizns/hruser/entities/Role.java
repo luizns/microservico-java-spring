@@ -1,9 +1,12 @@
 package com.luizns.hruser.entities;
 
-import javax.persistence.*;
 import java.io.Serializable;
-import java.util.Objects;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "tb_role")
@@ -15,10 +18,11 @@ public class Role implements Serializable {
     private Long id;
     private String roleName;
 
-    public Role(){
+    public Role() {
     }
 
     public Role(Long id, String roleName) {
+        super();
         this.id = id;
         this.roleName = roleName;
     }
@@ -40,15 +44,27 @@ public class Role implements Serializable {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Role role = (Role) o;
-        return Objects.equals(roleName, role.roleName);
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + ((roleName == null) ? 0 : roleName.hashCode());
+        return result;
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(roleName);
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Role other = (Role) obj;
+        if (roleName == null) {
+            if (other.roleName != null)
+                return false;
+        } else if (!roleName.equals(other.roleName))
+            return false;
+        return true;
     }
 }
